@@ -16,7 +16,7 @@
     --light:#eef5ff;
     --white:#ffffff;
 
-    --text:#90e3e6;
+    --text:#0f1010;
     --muted:#5f7ea8;
 
     --border:#d7e5ff;
@@ -45,6 +45,24 @@ body{
     background:var(--bg) url("../pictures/bucs-bg.jpg") center/cover no-repeat;
     color:#fff;
     min-height:100vh;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color:#f6f6f6;
+}
+
+i.fa-house{ 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+    color: rgb(27, 11, 90);
 }
 
 .auth-body{
@@ -261,6 +279,18 @@ form{
     font-size:18px;
     color:var(--muted);
 
+    user-select:none;
+}
+
+/* Confirm password toggle (align with password toggle) */
+#showConfirmPassword{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:var(--muted);
     user-select:none;
 }
 
@@ -532,6 +562,19 @@ textarea.form-control{
     line-height:1.5;
 }
 
+.form-divider{
+    height:auto;
+    margin:18px 0;
+    padding:6px 0 0 0;
+    color: rgb(71, 126, 226);
+    font-weight:700;
+}
+.form-label .req{
+    color:red;
+    font-style:italic;
+}
+
+
 textarea.form-control{
     min-height:140px;
     resize:vertical;
@@ -560,6 +603,34 @@ select.form-control{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
+}
+
+.class-card{
+    background:rgba(86,150,252,.08);
+    border:1px solid rgba(227, 238, 255, 0.374);
+    border-radius:18px;
+    padding:22px;
+    color:var(--navy);
+}
+
+.class-card-top{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.class-card-body{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+    color:var(--muted);
+}
+
+.class-item{
+    background:var(--teal-lt);
+    padding:12px 14px;
+    border-radius:9px;
 }
 
 .flex-center{
@@ -599,17 +670,35 @@ select.form-control{
     border-radius:12px;
     background:rgba(15,23,42,.05);
     text-decoration:none;
-    color:var(--muted);
+    color:white;
     font-size:13px;
     transition:.25s;
 }
 
 .filter-tab.active,
 .filter-tab:hover{
-    background:rgba(86,150,252,.12);
-    color:var(--navy);
+    background:rgba(255, 255, 255, 0.12);
+    color:rgb(148, 195, 231);
 }
 
+.btn i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.msg-view-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.msg-delete-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .flex{
     display:flex;
     align-items:center;
@@ -760,7 +849,6 @@ h2{
     line-height:1.8;
     color:rgba(2,53,97,.9);
 }
-
 .msg-view-footer{
     padding:18px 22px 22px;
     display:flex;
@@ -769,6 +857,19 @@ h2{
     justify-content:flex-end;
     border-top:1px solid rgba(15,23,42,.08);
     background:var(--white);
+}
+
+/* Reusable button row utility */
+.btn-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.btn-row-end{justify-content:flex-end}
+
+.msg-delete-footer{
+    display:inline-flex;
+    align-items:center;
 }
 
 @media(max-width:860px){
@@ -1209,3 +1310,4 @@ p{
         font-size:24px;
     }
 }
+

@@ -212,7 +212,7 @@ if (isset($_POST['signup'])) {
                			id="confirm_password"
                			placeholder="Confirm Password"
                			required>
-			<span id="showPassword">👁️</span>
+			<span id="showConfirmPassword">👁️</span>
 
     		</div>
 	     </div>

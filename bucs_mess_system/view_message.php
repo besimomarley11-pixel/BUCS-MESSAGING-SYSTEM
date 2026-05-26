@@ -53,7 +53,7 @@ include 'includes/navbar.php';
 <div class="page-wrap page-wrap-sm">
   <div class="page-head">
     <h1 class="page-title"><i class="fa fa-envelope-open"></i> Message</h1>
-    <div class="flex gap-8">
+    <div class="btn-row">
       <a href="<?= $is_mine ? 'sent.php' : 'inbox.php' ?>" class="btn btn-ghost">
         <i class="fa fa-arrow-left"></i> Back
       </a>
@@ -90,11 +90,13 @@ include 'includes/navbar.php';
       <a href="compose.php?reply=<?= $reply_to ?>" class="btn btn-ghost btn-sm">
         <i class="fa fa-reply"></i> Reply
       </a>
-      <form method="POST" onsubmit="return confirm('Delete this message?')" style="display:inline">
-        <button name="delete" class="btn btn-danger btn-sm">
+      <div class ="msg-delete-footer">
+      <form method="POST" onsubmit="return confirm('Delete this message?')">
+        <button name= "delete" class="btn btn-danger btn-sm">
           <i class="fa fa-trash"></i> Delete
         </button>
       </form>
+      </div>
     </div>
   </div>
 </div>

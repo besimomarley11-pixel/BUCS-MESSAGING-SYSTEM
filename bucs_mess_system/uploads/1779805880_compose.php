@@ -72,7 +72,7 @@ include 'includes/navbar.php';
           <textarea name="message" class="form-control" rows="7" required
                     placeholder="Write your message here…"><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
         </div>
-        <div class="btn-row btn-row-end">
+        <div class="flex gap-8" style="justify-content:flex-end">
           <a href="inbox.php" class="btn btn-ghost">Cancel</a>
           <button type="submit" class="btn btn-primary">
             <i class="fa fa-paper-plane"></i> Send Message

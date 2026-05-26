@@ -109,32 +109,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// ── Password show / hide ────────────────────────
+// ── Password & Confirm show / hide ──────────────
 document.addEventListener('DOMContentLoaded', function () {
-
-    const password = document.getElementById("password");
-
-    const showPassword =
-        document.getElementById("showPassword");
-
-    if (password && showPassword) {
-
-        showPassword.addEventListener("click", () => {
-
-            if (password.type === "password") {
-
-                password.type = "text";
-
-                showPassword.textContent = "🙈";
-
+    function attachToggle(fieldId, toggleId) {
+        var fld = document.getElementById(fieldId);
+        var tog = document.getElementById(toggleId);
+        if (!fld || !tog) return;
+        tog.addEventListener('click', function () {
+            if (fld.type === 'password') {
+                fld.type = 'text';
+                tog.textContent = '🙈';
             } else {
-
-                password.type = "password";
-
-                showPassword.textContent = "👁️";
+                fld.type = 'password';
+                tog.textContent = '👁️';
             }
         });
     }
+
+    attachToggle('password', 'showPassword');
+    attachToggle('confirm_password', 'showConfirmPassword');
 });
 
 // ── Required field validation ───────────────────
@@ -159,6 +152,36 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
 
+            // Ensure confirm password logic: if confirm filled but new password empty, block submit
+            var pwd = form.querySelector('input[name="pwd"], #password');
+            var cpwd = form.querySelector('input[name="cpwd"], #confirm_password');
+            if (cpwd && cpwd.value.trim() !== '' && (!pwd || pwd.value.trim() === '')) {
+                cpwd.classList.add('error');
+                ok = false;
+                if (!form.querySelector('.pw-hint')) {
+                    var hint = document.createElement('div');
+                    hint.className = 'alert alert-error pw-hint';
+                    hint.innerHTML = '<i class="fa fa-xmark"></i> Please enter your new password first.';
+                    form.insertBefore(hint, form.firstChild);
+                }
+            }
+
+            // Ensure confirm password matches new password when provided
+            if (pwd && cpwd && pwd.value.trim() !== '') {
+                if (pwd.value !== cpwd.value) {
+                    pwd.classList.add('error');
+                    cpwd.classList.add('error');
+                    ok = false;
+                    // insert an inline alert if not already present
+                    if (!form.querySelector('.pw-match-error')) {
+                        var err = document.createElement('div');
+                        err.className = 'alert alert-error pw-match-error';
+                        err.innerHTML = '<i class="fa fa-xmark"></i> Passwords do not match.';
+                        form.insertBefore(err, form.firstChild);
+                    }
+                }
+            }
+
             if (!ok) e.preventDefault();
         });
 
@@ -170,5 +193,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     f.classList.remove('error');
                 });
             });
+
+        // Show hint if user types confirm password before entering new password
+        var pwdField = form.querySelector('input[name="pwd"], #password');
+        var cpwdField = form.querySelector('input[name="cpwd"], #confirm_password');
+        if (cpwdField) {
+            cpwdField.addEventListener('input', function () {
+                var existing = form.querySelector('.pw-hint');
+                if (cpwdField.value.trim() !== '' && (!pwdField || pwdField.value.trim() === '')) {
+                    if (!existing) {
+                        var info = document.createElement('div');
+                        info.className = 'alert alert-error pw-hint';
+                        info.innerHTML = '<i class="fa fa-xmark"></i> Please enter your new password first.';
+                        form.insertBefore(info, form.firstChild);
+                    }
+                } else {
+                    if (existing) existing.remove();
+                }
+            });
+        }
+
+        if (pwdField) {
+            pwdField.addEventListener('input', function () {
+                var existing = form.querySelector('.pw-hint');
+                if (existing) existing.remove();
+            });
+        }
     });
 });

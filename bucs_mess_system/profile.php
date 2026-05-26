@@ -101,23 +101,19 @@ include 'includes/navbar.php';
 
         <div class="form-2col">
           <div class="form-group">
-            <label class="form-label">New Password <small>(leave blank to keep)</small></label>
+            <label class="form-label">New Password <small><span class="req">(leave blank to keep)</span> </small></label>
             <div class="input-icon-wrap">
               <i class="fa fa-lock input-icon"></i>
-              <input type="password" id="pwd" name="pwd" class="form-control" placeholder="New password">
-              <button type="button" class="input-icon-right" onclick="togglePwd('pwd','eye1')">
-                <i class="fa fa-eye" id="eye1"></i>
-              </button>
+              <input type="password" id="password" name="pwd" class="form-control" placeholder="New password">
+              <span id="showPassword" class="input-icon-right">👁️</span>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Confirm Password</label>
             <div class="input-icon-wrap">
               <i class="fa fa-lock input-icon"></i>
-              <input type="password" id="cpwd" name="cpwd" class="form-control" placeholder="Repeat password">
-              <button type="button" class="input-icon-right" onclick="togglePwd('cpwd','eye2')">
-                <i class="fa fa-eye" id="eye2"></i>
-              </button>
+              <input type="password" id="confirm_password" name="cpwd" class="form-control" placeholder="Repeat password">
+              <span id="showConfirmPassword" class="input-icon-right">👁️</span>
             </div>
           </div>
         </div>
@@ -140,7 +136,7 @@ include 'includes/navbar.php';
       <?php else: ?>
         <div class="class-grid">
           <?php while ($cl = $classes->fetch_assoc()): ?>
-            <div class="flex-center gap-8" style="background:var(--teal-lt);padding:12px 14px;border-radius:9px">
+            <div class="class-item flex-center gap-8">
               <i class="fa fa-chalkboard-user" style="color:var(--teal-dk)"></i>
               <span class="font-600 text-sm"><?= htmlspecialchars($cl['classname']) ?></span>
             </div>

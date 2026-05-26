@@ -99,13 +99,6 @@ include 'includes/navbar.php';
                   <a href="compose.php?reply=<?= $m['sender_id'] ?>" class="btn btn-ghost btn-sm" title="Reply">
                     <i class="fa fa-reply"></i>
                   </a>
-                  <form method="POST" onsubmit="return confirm('Delete this message?')" style="display:inline">
-                    <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="mess_id" value="<?= $m['mess_id'] ?>">
-                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
-                      <i class="fa fa-trash"></i>
-                    </button>
-                  </form>
                 </div>
               </td>
             </tr>
