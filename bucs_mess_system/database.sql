@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS messages (
 
 -- Sample data
 INSERT INTO classes (classname) VALUES
-  ('BSIT 3-A'), ('BSCS 2-B'), ('BSIS 4-A'), ('BSIT 1-C');
+  ('BSIT 3-A'), ('BSCS 2-B'), ('BSIT 4-A'), ('BSIT 1-C');
 
 INSERT INTO users (id_no, fname, mname, lname, uname, pwd) VALUES
   ('2021-0001','Juan',  'Reyes',  'dela Cruz','juandc',   MD5('password1')),

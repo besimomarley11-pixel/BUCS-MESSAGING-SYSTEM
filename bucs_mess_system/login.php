@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet"
-          href="assets/css/style.css">
+          href="css/style.css">
 
 </head>
 
@@ -159,7 +159,7 @@ if (isset($_POST['login'])) {
 
 </div>
 
-<script src="assets/js/app.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

@@ -22,7 +22,7 @@ if (!$res || $res->num_rows === 0) {
     include 'includes/head.php';
     include 'includes/navbar.php';
     echo '<div class="page-wrap"><div class="alert alert-error"><i class="fa fa-ban"></i> Message not found or access denied.</div></div>';
-    echo '<script src="assets/js/app.js"></script></body></html>';
+    echo '<script src="js/app.js"></script></body></html>';
     exit;
 }
 
@@ -101,6 +101,6 @@ include 'includes/navbar.php';
   </div>
 </div>
 
-<script src="assets/js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

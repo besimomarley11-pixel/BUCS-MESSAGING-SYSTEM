@@ -53,6 +53,6 @@ include 'includes/navbar.php';
   <?php endif; ?>
 </div>
 
-<script src="assets/js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

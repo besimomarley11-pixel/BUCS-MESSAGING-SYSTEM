@@ -1,6 +1,6 @@
 # BUCS Messaging System
 
-A lightweight PHP-based student messaging system built for use with XAMPP or any PHP/MySQL local server.
+A lightweight PHP-based student messaging system built for use with XAMPP mysql in local server.
 
 ## Features
 
